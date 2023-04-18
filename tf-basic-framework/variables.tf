@@ -34,13 +34,13 @@ variable "vpc-dev-int-cidr" {
 
 # DMZ-VPC
 variable "sbn-dev-dmz-pub-a-name" {
-  default = "SNBX-AN2-DEV-DMZ-PUB-A"
+  default = "SNBX-AN2-DEV-DMZ-SBN-PUB-A"
 }
 variable "sbn-dev-dmz-pub-a-cidr" {
   default = "10.100.0.0/26"
 }
 variable "sbn-dev-dmz-pub-c-name" {
-  default = "SNBX-AN2-DEV-DMZ-PUB-C"
+  default = "SNBX-AN2-DEV-DMZ-SBN-PUB-C"
 }
 variable "sbn-dev-dmz-pub-c-cidr" {
   default = "10.100.0.64/26"
@@ -49,17 +49,63 @@ variable "sbn-dev-dmz-pub-c-cidr" {
 
 # INT-VPC
 variable "sbn-dev-int-pri-a-name" {
-  default = "SNBX-AN2-DEV-INT-PRI-A"
+  default = "SNBX-AN2-DEV-INT-SBN-PRI-A"
 }
 variable "sbn-dev-int-pri-a-cidr" {
   default = "10.200.0.0/26"
 }
 variable "sbn-dev-int-pri-c-name" {
-  default = "SNBX-AN2-DEV-INT-PRI-C"
+  default = "SNBX-AN2-DEV-INT-SBN-PRI-C"
 }
 variable "sbn-dev-int-pri-c-cidr" {
   default = "10.200.0.64/26"
 }
+
+
+
+##############################
+####### RT definition  #######
+##############################
+
+variable "rt-dev-dmz-pub-name" {
+  default = "SNBX-AN2-DEV-DMZ-RT-PUB"
+}
+
+
+
+
+
+
+
+##############################
+####### EC2 Definition #######
+##############################
+
+variable "ec2-dev-dmz-bst-name" {
+  default = "SNBX-AN2-DEV-DMZ-EC2-BST"
+}
+
+
+
+
+
+
+##############################
+####### IP Definition ########
+##############################
+
+variable "ec2-dev-dmz-bst-ip" {
+  default =  "10.100.0.10"  
+}
+
+
+
+
+
+
+
+
+
 
 
 ##############################
@@ -74,3 +120,15 @@ variable "tags-common" {
   }
 }
 
+
+
+
+
+
+##############################
+####### IAM Definition #######
+##############################
+
+variable "role-dev-ec2-default-name" {
+  default = "SNBX-AN2-DEV-IAM-ROL-EC2-DEFAULT"
+}
