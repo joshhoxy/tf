@@ -73,6 +73,29 @@ variable "rt-dev-dmz-pub-name" {
 
 
 
+##############################
+####### SG Definition ########
+##############################
+
+variable "sg-dev-dmz-ap-bst-name" {
+  default = "SNBX-AN2-DEV-DMZ-SG-BST"
+}
+
+
+
+
+
+
+##############################
+####### IP Definition ########
+##############################
+
+variable "ec2-dev-dmz-bst-ip" {
+  default = "10.100.0.10"
+}
+
+
+
 
 
 
@@ -90,13 +113,6 @@ variable "ec2-dev-dmz-bst-name" {
 
 
 
-##############################
-####### IP Definition ########
-##############################
-
-variable "ec2-dev-dmz-bst-ip" {
-  default =  "10.100.0.10"  
-}
 
 
 
@@ -131,4 +147,14 @@ variable "tags-common" {
 
 variable "role-dev-ec2-default-name" {
   default = "SNBX-AN2-DEV-IAM-ROL-EC2-DEFAULT"
+}
+
+
+##############################
+####### KMS Definition #######
+##############################
+
+variable "key-cmk-ebs-arn" {
+  default = "arn:aws:kms:ap-northeast-2:176247174993:key/c4db37e3-79ae-4f53-ac5a-8a4872eeeffd"
+
 }
