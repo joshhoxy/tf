@@ -32,6 +32,14 @@ resource "aws_instance" "ec2-dev-dmz-bastion" {
     )
   }
 
+  tags = merge(
+    {
+      Name    = var.ec2-dev-dmz-bst-name
+      Purpose = "Test"
+    },
+    var.tags-common
+  )
+
 }
 
 resource "aws_network_interface" "eni-dev-dmz-bst-1" {
@@ -73,17 +81,17 @@ resource "aws_volume_attachment" "ebs-att-dev-dmz-ec2-bst-1" {
 resource "aws_eip" "eip-ec2-dev-dmz-bst-1" {
   vpc = true
 
-  tags = merge (
+  tags = merge(
     {
-      Name = "SNBX-AN2-DEV-DMZ-EIP-BST"
+      Name    = "SNBX-AN2-DEV-DMZ-EIP-BST"
       Purpose = "Test"
     },
     var.tags-common
-  )  
+  )
 }
 
 resource "aws_eip_association" "eip-ec2-dev-dmz-bst-1" {
-  allocation_id = aws_eip.eip-ec2-dev-dmz-bst-1.id
+  allocation_id        = aws_eip.eip-ec2-dev-dmz-bst-1.id
   network_interface_id = aws_network_interface.eni-dev-dmz-bst-1.id
 }
 

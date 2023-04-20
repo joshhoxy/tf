@@ -3,7 +3,7 @@ resource "aws_vpc" "vpc-dev-int" {
   enable_dns_hostnames = true
   tags = merge(
     {
-      Name      = var.vpc-dev-int-name,
+      Name      = var.vpc-dev-int-name
       "Purpose" = "Test"
     },
     var.tags-common
