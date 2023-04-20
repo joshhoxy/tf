@@ -76,13 +76,15 @@ variable "rt-dev-dmz-pub-name" {
 ##############################
 ####### SG Definition ########
 ##############################
-
+#VPC-DEV
 variable "sg-dev-dmz-ap-bst-name" {
   default = "SNBX-AN2-DEV-DMZ-SG-BST"
 }
 
-
-
+# VPC-INT
+variable "sg-dev-dmz-ap-bst-name" {
+  default = "SNBX-AN2-DEV-DMZ-SG-BST"
+}
 
 
 
@@ -94,6 +96,9 @@ variable "ec2-dev-dmz-bst-ip" {
   default = "10.100.0.10"
 }
 
+variable "ec2-dev-dmz-bst-ip" {
+  default = "10.200.0.10"
+}
 
 
 
@@ -108,7 +113,9 @@ variable "ec2-dev-dmz-bst-name" {
   default = "SNBX-AN2-DEV-DMZ-EC2-BST"
 }
 
-
+variable "ec2-dev-int-app-name" {
+  default = "SNBX-AN2-DEV-INT-EC2-APP"
+}
 
 
 
