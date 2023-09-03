@@ -1,5 +1,4 @@
 resource "aws_vpc" "vpc-dev-dmz" {
-  #provider = aws.dev
   cidr_block           = var.vpc-dev-dmz-cidr
   enable_dns_hostnames = true
 
@@ -7,6 +6,18 @@ resource "aws_vpc" "vpc-dev-dmz" {
     {
       Name = var.vpc-dev-dmz-name
     },
-    var.josh-test-dev-tags
+    var.tags-josh-test
+  )
+}
+
+resource "aws_vpc" "vpc-dev-int" {
+  cidr_block           = var.vpc-dev-int-cidr
+  enable_dns_hostnames = true
+
+  tags = merge(
+    {
+      Name = var.vpc-dev-int-name
+    },
+    var.tags-josh-test
   )
 }

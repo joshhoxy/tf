@@ -19,5 +19,4 @@ terraform {
     key    = "basic/terraform.tfstate"
     acl    = "bucket-owner-full-control"
   }
-
 }
