@@ -30,12 +30,3 @@ data "aws_ami" "amlx2023" {
     values = ["al2023-ami-2023*"]
   }
 }
-
-
-data "aws_ami" "amlx-2" {
-  most_recent = true
-  filter {
-    name   = "name"
-    values = ["amzn2-ami-hvm*"]
-  }
-}

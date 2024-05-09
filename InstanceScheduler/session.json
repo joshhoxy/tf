@@ -1,0 +1,12 @@
+{
+    "Credentials": {
+        "AccessKeyId": "ASIA4MTWLH5L7TRD6TBY",
+        "SecretAccessKey": "spEa5PPn4SRidrhyJHhywk21v2yLKf4XVAiIzJ/O",
+        "SessionToken": "IQoJb3JpZ2luX2VjEJH//////////wEaDmFwLW5vcnRoZWFzdC0yIkgwRgIhAJ783tgJUvu+KVJ+44u2YqiKiZlRkIDkQiKy9/3wLIlaAiEAqPX5esoJb+GiwZITVBXweopW048c+ZJEvaZKZPbz0acqnwII6v//////////ARAAGgw4NTE3MjU0Njc0NzkiDGobv91GzPO429/ylyrzAR5D9leQqt80On8Pr+qLkuiiCQOZ8Qhg/EzS6P+x9SuvjrOuMM34RfLc4eEg96UsCLAkx+tIdy2+FzEXrd3h0vD1S+qtOGdeqa9o9bd71pp43tioDDr+7KxQkETwdtQYtYJ8BQTmoEYcfek1auivwFI82vMXVegfgigdhgMLCutqNOktlFZr1jCIMd5tsHEJn7Na6zUHhR1tOqfzTDKxEBTvC9RlDDPw71kNEeLIdSLmXr+NX4fgcBJMMvg58Ekkpw33sRzfWDWn7SyK1n7J5ktKqR2dFSPV5gHVyCVemPzZCCmq09hRF3m+Vhkctv8XL+rRFjD+gO2xBjqcAZUEkiawocEEk+pHJwkiyT8DuN9UeNZRvOigU3WwDA7w+Xtbzb5Nv6NsX+3o5u6SCCOnxYRUpHoDgkvMyH+GBNXICHr850oEhZRJB6BMGg5Rlo78s475auS1xyGOokDGca4vniRwwOTOfOWdJ3jn+7B7lq+fTWNjnPAvAzdlUrsmD7XTJCL6P/+pXjEToltbq78qgdOXQ8kDX6b16g==",
+        "Expiration": "2024-05-08T10:06:06+00:00"
+    },
+    "AssumedRoleUser": {
+        "AssumedRoleId": "AROA4MTWLH5LQLYPIXL4X:MySession",
+        "Arn": "arn:aws:sts::851725467479:assumed-role/iam-role-josh-assume-admin/MySession"
+    }
+}

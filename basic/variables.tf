@@ -1,82 +1,135 @@
+################################################
+##################### PJ Code ##################
+################################################
+variable "pj-code" {
+  default = "JOSH-OTL"
+}
+
+################################################
+##################### VPC ######################
+################################################
 variable "vpc-dev-dmz-cidr" {
-  default = "100.1.0.0/16"
+  default = "172.16.0.0/22"
 }
 
 variable "vpc-dev-int-cidr" {
-  default = "100.2.0.0/16"
+  default = "172.24.0.0/22"
 }
 
 variable "vpc-dev-dmz-name" {
-  default = "BASIC-DEV-DMZ-VPC"
+  default = "JOSH-OTL-DMZ-VPC"
 }
 
 variable "vpc-dev-int-name" {
-  default = "BASIC-DEV-INT-VPC"
+  default = "JOSH-OTL-INT-VPC"
 }
 
-variable "sbn-dev-dmz-pub-a-name" {
-  default = "BASIC-DEV-DMZ-SBN-PUB-A"
-}
-
-variable "sbn-dev-dmz-pub-c-name" {
-  default = "BASIC-DEV-DMZ-SBN-PUB-C"
-}
-
-variable "sbn-dev-dmz-pri-a-name" {
-  default = "BASIC-DEV-DMZ-SBN-PRI-A"
-}
-
-variable "sbn-dev-dmz-pri-c-name" {
-  default = "BASIC-DEV-DMZ-SBN-PRI-C"
+################################################
+##################### IGW ######################
+################################################
+variable "igw-dev-dmz-name"{
+  default = "JOSH-OTL-DMZ-IGW"
 }
 
 
-## SBN-IP
-variable "sbn-dev-dmz-pub-a-cidr" {
-  default = "100.1.1.0/27"
+#################################################
+##################### Subnet ####################
+#################################################
+variable "sbn-dev-dmz-pub-1-name" {
+  default = "JOSH-OTL-DMZ-SBN-PUB-1"
 }
 
-variable "sbn-dev-dmz-pub-c-cidr" {
-  default = "100.1.1.32/27"
+variable "sbn-dev-dmz-pub-2-name" {
+  default = "JOSH-OTL-DMZ-SBN-PUB-2"
 }
 
-variable "sbn-dev-dmz-pri-a-cidr" {
-  default = "100.1.2.0/27"
+variable "sbn-dev-dmz-ap-1-name" {
+  default = "JOSH-OTL-DMZ-SBN-AP-1"
 }
 
-variable "sbn-dev-dmz-pri-c-cidr" {
-  default = "100.1.2.32/27"
+variable "sbn-dev-dmz-ap-2-name" {
+  default = "JOSH-OTL-DMZ-SBN-AP-2"
 }
+
+variable "sbn-dev-dmz-pub-1-cidr" {
+  default = "172.16.0.0/28"
+}
+
+variable "sbn-dev-dmz-pub-2-cidr" {
+  default = "172.16.1.0/28"
+}
+
+variable "sbn-dev-dmz-ap-1-cidr" {
+  default = "172.16.0.16/28"
+}
+
+variable "sbn-dev-dmz-ap-2-cidr" {
+  default = "172.16.1.16/28"
+}
+
+# INT VPC
+variable "sbn-dev-int-ext-1-name" {
+  default = "JOSH-OTL-INT-SBN-EXT-1"
+}
+
+variable "sbn-dev-int-ext-2-name" {
+  default = "JOSH-OTL-INT-SBN-EXT-2"
+}
+
+variable "sbn-dev-int-ap-1-name" {
+  default = "JOSH-OTL-INT-SBN-AP-1"
+}
+
+variable "sbn-dev-int-ap-2-name" {
+  default = "JOSH-OTL-INT-SBN-AP-2"
+}
+
+variable "sbn-dev-int-ext-1-cidr" {
+  default = "172.24.0.0/28"
+}
+
+variable "sbn-dev-int-ext-2-cidr" {
+  default = "172.24.1.0/28"
+}
+
+variable "sbn-dev-int-ap-1-cidr" {
+  default = "172.24.0.64/26"
+}
+
+variable "sbn-dev-int-ap-2-cidr" {
+  default = "172.24.1.64/26"
+}
+
+
+
 
 ########################################
 ################## TAG #################
 ########################################
-variable "tags-josh-test" {
+variable "tags-josh-default" {
   default = {
-    Owner       = "Josh"
-    Environment = "DEV"
-    Purpose     = "Test"
+    User = "joshcloud@mz.co.kr"
+    Owner           = "Josh"
+    Application     = "Ansible test"
+    Environment     = "DEV"
+    Auto-Start_Stop = "True"
   }
 }
 
-variable "az-a" {
-  default = "ap-northeast-2a"
+variable "az-1-number" {
+  default = 0
 }
 
-variable "az-b" {
-  default = "ap-northeast-2b"
+variable "az-2-number" {
+  default = 1
 }
 
-variable "az-c" {
-  default = "ap-northeast-2c"
+variable "az-3-number" {
+  default = 2
 }
-
-variable "az-d" {
-  default = "ap-northeast-2d"
+variable "az-4-number" {
+  default = 3
 }
-
-
-
 
 ########################################
 ################## AMI #################
@@ -87,7 +140,7 @@ variable "ami-amlx2" {
 }
 
 variable "ami-amlx3" {
-  default = "ami-04a7c24c015ef1e4c"
+  default = "ami-0c031a79ffb01a803"
 }
 
 
@@ -96,23 +149,64 @@ variable "ami-amlx3" {
 ########################################
 
 variable "role-dev-ec2-default-name" {
-  default = "BASIC-DEV-IAM-ROL-EC2-DEFAULT"
+  default = "JOSH-OTL-IAM-ROL-EC2-DEFAULT"
 }
+
+
+########################################
+################## SG #################
+########################################
+
+variable "sg-dev-dmz-pub-bst-1-name" {
+  default = "JOSH-OTL-DMZ-SG-BST-1"
+}
+
+variable "sg-dev-dmz-ap-mgd-1-name" {
+  default = "JOSH-OTL-DMZ-SG-AP-MGD-1"
+}
+
+
 
 ########################################
 ################## EC2 #################
 ########################################
 variable "ec2-dev-dmz-bst-1-name" {
-  default = "BASIC-DEV-DMZ-EC2-BST-1"
+  default = "JOSH-OTL-DMZ-EC2-BST-1"
 }
-variable "ec2-dev-dmz-bst-1-ip" {
-  default = "100.1.1.20"
+variable "ec2-dev-dmz-web-1-name" {
+  default = "JOSH-OTL-DMZ-EC2-WEB-1"
 }
-
-
-
+variable "ec2-dev-dmz-web-2-name" {
+  default = "JOSH-OTL-DMZ-EC2-WEB-2"
+}
 
 
 #######################################
 ################## IP #################
 ########################################
+
+variable "ec2-dev-dmz-bst-1-ip" {
+  default = "172.16.0.10"
+}
+variable "ec2-dev-dmz-web-1-ip" {
+  default = "172.16.0.20"
+}
+variable "ec2-dev-dmz-web-2-ip" {
+  default = "172.16.1.20"
+}
+ 
+
+#######################################
+############# Route table ##############
+########################################
+
+
+variable "rt-dev-dmz-pub-name" {
+  default = "JOSH-OTL-DMZ-RT-PUB"
+}
+
+variable "rt-dev-dmz-ap-name" {
+  default = "JOSH-OTL-DMZ-RT-AP"
+}
+
+
