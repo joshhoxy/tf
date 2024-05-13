@@ -39,3 +39,17 @@ data "aws_ami" "amlx2" {
     values = ["amzn2-ami-hvm*"]
   }
 }
+
+data "aws_ami" "ubuntu-2204" {
+  most_recent = true
+  filter {
+    name   = "name"
+    values = ["ubuntu/images/hvm-ssd/ubuntu-jammy-*"]
+  }
+
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
+
+}
