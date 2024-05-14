@@ -165,6 +165,9 @@ variable "sg-dev-dmz-ap-mgd-1-name" {
   default = "JOSH-OTL-DMZ-SG-AP-MGD-1"
 }
 
+variable "sg-dev-dmz-pub-zbx-1-name" {
+  default = "JOSH-OTL-DMZ-SG-ZBX-1"
+}
 
 
 ########################################
@@ -199,7 +202,7 @@ variable "ec2-dev-dmz-web-2-ip" {
   default = "172.16.1.20"
 }
 variable "ec2-dev-dmz-zbx-1-ip" {
-  default = "172.16.0.21"
+  default = "172.16.0.11"
 }
 
 #######################################

@@ -62,7 +62,8 @@ resource "aws_network_interface" "eni-dev-dmz-ec2-bst-1" {
   subnet_id   = aws_subnet.sbn-dev-dmz-pub-1.id
   private_ips = [var.ec2-dev-dmz-bst-1-ip]
   security_groups = [
-    aws_security_group.sg-dev-dmz-pub-bst-1.id
+    aws_security_group.sg-dev-dmz-pub-bst-1.id,
+    aws_security_group.sg-dev-dmz-ap-mgd-1.id
   ]
   tags = merge(
     {

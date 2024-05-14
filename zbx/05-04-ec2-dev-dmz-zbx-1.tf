@@ -21,7 +21,7 @@ resource "aws_instance" "ec2-dev-dmz-zbx-1" {
     device_index         = 0
   }
 
-  user_data = filebase64("./userdata-ec2-default.sh")
+  user_data = filebase64("./userdata-ubuntu")
 
   root_block_device {
     volume_type           = "gp3"
@@ -59,10 +59,11 @@ resource "aws_instance" "ec2-dev-dmz-zbx-1" {
 }
 
 resource "aws_network_interface" "eni-dev-dmz-ec2-zbx-1" {
-  subnet_id   = aws_subnet.sbn-dev-dmz-ap-1.id
+  subnet_id   = aws_subnet.sbn-dev-dmz-pub-1.id
   private_ips = [var.ec2-dev-dmz-zbx-1-ip]
   security_groups = [
-    aws_security_group.sg-dev-dmz-ap-mgd-1.id
+    aws_security_group.sg-dev-dmz-ap-mgd-1.id,
+    aws_security_group.sg-dev-dmz-pub-zbx-1.id
   ]
   tags = merge(
     {
