@@ -49,3 +49,14 @@ resource "aws_security_group_rule" "sgr-dev-dmz-pub-zbx-3" {
   security_group_id = aws_security_group.sg-dev-dmz-pub-zbx-1.id
   description       = "From Zabbix Agent installed on EC2s in VPC"
 }
+
+resource "aws_security_group_rule" "sgr-dev-dmz-pub-zbx-4" {
+  # provider = aws.snm-dev
+  type              = "ingress"
+  from_port         = 3000
+  to_port           = 3000
+  protocol          = "TCP"
+  cidr_blocks       = ["0.0.0.0/0"]
+  security_group_id = aws_security_group.sg-dev-dmz-pub-zbx-1.id
+  description       = "From Public for Grafana Server Admin console"
+}
