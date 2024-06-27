@@ -41,10 +41,21 @@ resource "aws_security_group_rule" "sgr-dev-dmz-ap-mgd-2" {
 resource "aws_security_group_rule" "sgr-dev-dmz-ap-mgd-3" {
   # provider = aws.snm-dev
   type              = "ingress"
-  from_port         = 10050
-  to_port           = 10050
+  from_port         = 9100
+  to_port           = 9100
   protocol          = "TCP"
-  cidr_blocks       = ["${var.ec2-dev-dmz-zbx-1-ip}/32"]
+  cidr_blocks       = ["${var.ec2-dev-dmz-pmt-1-ip}/32"]
   security_group_id = aws_security_group.sg-dev-dmz-ap-mgd-1.id
-  description       = "From Zabbix Server"
+  description       = "From Prometheus Server to Grafana-agents for monitoring"
+}
+
+resource "aws_security_group_rule" "sgr-dev-dmz-ap-mgd-4" {
+  # provider = aws.snm-dev
+  type              = "ingress"
+  from_port         = 9090
+  to_port           = 9090
+  protocol          = "TCP"
+  cidr_blocks       = ["${var.ec2-dev-dmz-pmt-1-ip}/32"]
+  security_group_id = aws_security_group.sg-dev-dmz-ap-mgd-1.id
+  description       = "From Prometheus Server to Grafana-agents for monitoring"
 }

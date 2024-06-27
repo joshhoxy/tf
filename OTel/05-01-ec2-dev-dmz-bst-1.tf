@@ -25,7 +25,7 @@ resource "aws_instance" "ec2-dev-dmz-bst-1" {
 
   root_block_device {
     volume_type           = "gp3"
-    volume_size           = 50
+    volume_size           = 8
     delete_on_termination = true
 
     tags = merge(

@@ -9,11 +9,11 @@ variable "pj-code" {
 ##################### VPC ######################
 ################################################
 variable "vpc-dev-dmz-cidr" {
-  default = "172.16.0.0/22"
+  default = "172.16.0.0/16"
 }
 
 variable "vpc-dev-int-cidr" {
-  default = "172.24.0.0/22"
+  default = "172.24.0.0/16"
 }
 
 variable "vpc-dev-dmz-name" {
@@ -52,19 +52,19 @@ variable "sbn-dev-dmz-ap-2-name" {
 }
 
 variable "sbn-dev-dmz-pub-1-cidr" {
-  default = "172.16.0.0/28"
+  default = "172.16.0.0/26"
 }
 
 variable "sbn-dev-dmz-pub-2-cidr" {
-  default = "172.16.1.0/28"
+  default = "172.16.8.0/26"
 }
 
 variable "sbn-dev-dmz-ap-1-cidr" {
-  default = "172.16.0.16/28"
+  default = "172.16.32.0/22"
 }
 
 variable "sbn-dev-dmz-ap-2-cidr" {
-  default = "172.16.1.16/28"
+  default = "172.16.40.0/22"
 }
 
 # INT VPC
@@ -85,19 +85,19 @@ variable "sbn-dev-int-ap-2-name" {
 }
 
 variable "sbn-dev-int-ext-1-cidr" {
-  default = "172.24.0.0/28"
+  default = "172.24.0.0/26"
 }
 
 variable "sbn-dev-int-ext-2-cidr" {
-  default = "172.24.1.0/28"
+  default = "172.24.8.0/26"
 }
 
 variable "sbn-dev-int-ap-1-cidr" {
-  default = "172.24.0.64/26"
+  default = "172.24.32.0/22"
 }
 
 variable "sbn-dev-int-ap-2-cidr" {
-  default = "172.24.1.64/26"
+  default = "172.24.40.0/22"
 }
 
 
@@ -110,7 +110,7 @@ variable "tags-josh-default" {
   default = {
     User = "joshcloud@mz.co.kr"
     Owner           = "Josh"
-    Application     = "Ansible test"
+    Application     = "OTel test"
     Environment     = "DEV"
     Auto-Start_Stop = "True"
   }
@@ -165,8 +165,8 @@ variable "sg-dev-dmz-ap-mgd-1-name" {
   default = "JOSH-OTL-DMZ-SG-AP-MGD-1"
 }
 
-variable "sg-dev-dmz-pub-zbx-1-name" {
-  default = "JOSH-OTL-DMZ-SG-ZBX-1"
+variable "sg-dev-dmz-pub-pmt-1-name" {
+  default = "JOSH-OTL-DMZ-SG-PMT-1"
 }
 
 
@@ -183,8 +183,8 @@ variable "ec2-dev-dmz-web-2-name" {
   default = "JOSH-OTL-DMZ-EC2-WEB-2"
 }
 
-variable "ec2-dev-dmz-zbx-1-name" {
-  default = "JOSH-OTL-DMZ-EC2-ZBX-1"
+variable "ec2-dev-dmz-pmt-1-name" {
+  default = "JOSH-OTL-DMZ-EC2-PMT-1"
 }
 
 
@@ -196,12 +196,12 @@ variable "ec2-dev-dmz-bst-1-ip" {
   default = "172.16.0.10"
 }
 variable "ec2-dev-dmz-web-1-ip" {
-  default = "172.16.0.20"
+  default = "172.16.32.10"
 }
 variable "ec2-dev-dmz-web-2-ip" {
-  default = "172.16.1.20"
+  default = "172.16.40.10"
 }
-variable "ec2-dev-dmz-zbx-1-ip" {
+variable "ec2-dev-dmz-pmt-1-ip" {
   default = "172.16.0.11"
 }
 
