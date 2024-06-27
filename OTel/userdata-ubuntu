@@ -1,0 +1,60 @@
+#cloud-config
+system_info:
+  default_user:
+    name: sysadmin
+    gecos: sysadmin
+    uid: "1020"
+
+ssh_pwauth: true
+
+chpasswd:
+  expire: true
+
+chpasswd:
+  list:
+    - sysadmin:sysadmin
+
+package_update: true
+packages:
+ - awscli
+ - nvme-cli
+
+ntp:
+  enabled: true
+  ntp_client: chrony
+  servers: 
+    - 169.254.169.123
+
+timezone: ROK
+#timezone: Asia/Seoul
+
+fs_setup:
+ - cmd: mkfs -t %(filesystem)s -L %(label)s %(device)s
+   label: data
+   filesystem: 'xfs'
+   overwrite: false
+   device: '/dev/nvme1n1'
+
+runcmd:
+  - [ sed, -i, 's/#Port 22/Port 30022/g', /etc/ssh/sshd_config ]
+  - [ systemctl, restart, ssh ]
+  - [ sed, -i, 's/name: ec2-user/name: sysadmin/g', /etc/cloud/cloud.cfg ]
+  - [ sed, -i, 's/lock_passwd: true/lock_passwd: false/g', /etc/cloud/cloud.cfg ]
+  - [ sed, -i, 's/gecos: EC2 Default User/gecos: sysadmin/g', /etc/cloud/cloud.cfg ]
+  - [ sed, -i, 's/ssh_pwauth:   false/ssh_pwauth:   true/g', /etc/cloud/cloud.cfg ]
+  - export UUID=$(blkid /dev/nvme1n1 -s UUID -o value)
+  - echo "UUID=${UUID}  /data  xfs  defaults,nofail  0  2" >> /etc/fstab
+  - [ mkdir, /data ]
+  - [ mount, -a]
+
+# hostname: test
+manage_etc_hosts: true
+
+output:
+    init:
+        output: "> /var/log/cloud-init.out"
+        error: "> /var/log/cloud-init.err"
+    config: "tee -a /var/log/cloud-config.log"
+    final:
+        - ">> /var/log/cloud-final.out"
+        - "/var/log/cloud-final.err"
