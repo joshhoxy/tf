@@ -52,10 +52,10 @@ resource "aws_security_group_rule" "sgr-dev-dmz-ap-mgd-3" {
 resource "aws_security_group_rule" "sgr-dev-dmz-ap-mgd-4" {
   # provider = aws.snm-dev
   type              = "ingress"
-  from_port         = 9090
-  to_port           = 9090
+  from_port         = 12345
+  to_port           = 12345
   protocol          = "TCP"
   cidr_blocks       = ["${var.ec2-dev-dmz-pmt-1-ip}/32"]
   security_group_id = aws_security_group.sg-dev-dmz-ap-mgd-1.id
-  description       = "From Prometheus Server to Grafana-agents for monitoring"
+  description       = "From Prometheus Server to Grafana-agent-flow for monitoring"
 }

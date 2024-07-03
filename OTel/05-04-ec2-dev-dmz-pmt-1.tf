@@ -7,7 +7,7 @@ resource "aws_instance" "ec2-dev-dmz-pmt-1" {
   #운영단계중에는 true로 변경
   disable_api_termination = false
 
-  iam_instance_profile = aws_iam_role.role-dev-ec2-default.name
+  iam_instance_profile = aws_iam_role.role-dev-ec2-prometheus.name
 
   metadata_options {
     http_endpoint               = "enabled"

@@ -152,6 +152,10 @@ variable "role-dev-ec2-default-name" {
   default = "JOSH-OTL-IAM-ROL-EC2-DEFAULT"
 }
 
+variable "role-dev-ec2-prometheus-name" {
+  default = "JOSH-OTL-IAM-ROL-EC2-PMT"
+}
+
 
 ########################################
 ################## SG #################
